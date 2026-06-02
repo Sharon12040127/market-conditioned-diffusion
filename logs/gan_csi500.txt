@@ -1,0 +1,7 @@
+GAN训练样本数: 771002
+  GAN epoch 20/100  G=0.7799  D=1.3356
+  GAN epoch 40/100  G=0.7358  D=1.3574
+  GAN epoch 60/100  G=0.7324  D=1.3596
+  GAN epoch 80/100  G=0.7296  D=1.3615
+  GAN epoch 100/100  G=0.7287  D=1.3626
+GAN训练完成，已保存到checkpoints_csi500/gan_best.pt

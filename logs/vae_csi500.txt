@@ -1,0 +1,7 @@
+VAE训练样本数: 771002
+  VAE epoch 20/100  recon_loss=0.035677  kl_w=0.000040
+  VAE epoch 40/100  recon_loss=0.024426  kl_w=0.000080
+  VAE epoch 60/100  recon_loss=0.022369  kl_w=0.000100
+  VAE epoch 80/100  recon_loss=0.020371  kl_w=0.000100
+  VAE epoch 100/100  recon_loss=0.018787  kl_w=0.000100
+VAE训练完成，best recon_loss=0.018787，已保存到checkpoints_csi500/vae_best.pt

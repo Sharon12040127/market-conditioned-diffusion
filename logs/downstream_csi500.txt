@@ -1,0 +1,631 @@
+
+加载MCD模型生成增强数据...
+actual n_embd: 64
+  生成regime=0的数据，33333个样本...
+    [0/131] generating...
+    [10/131] generating...
+    [20/131] generating...
+    [30/131] generating...
+    [40/131] generating...
+    [50/131] generating...
+    [60/131] generating...
+    [70/131] generating...
+    [80/131] generating...
+    [90/131] generating...
+    [100/131] generating...
+    [110/131] generating...
+    [120/131] generating...
+    [130/131] generating...
+  生成regime=1的数据，33333个样本...
+    [0/131] generating...
+    [10/131] generating...
+    [20/131] generating...
+    [30/131] generating...
+    [40/131] generating...
+    [50/131] generating...
+    [60/131] generating...
+    [70/131] generating...
+    [80/131] generating...
+    [90/131] generating...
+    [100/131] generating...
+    [110/131] generating...
+    [120/131] generating...
+    [130/131] generating...
+  生成regime=2的数据，33333个样本...
+    [0/131] generating...
+    [10/131] generating...
+    [20/131] generating...
+    [30/131] generating...
+    [40/131] generating...
+    [50/131] generating...
+    [60/131] generating...
+    [70/131] generating...
+    [80/131] generating...
+    [90/131] generating...
+    [100/131] generating...
+    [110/131] generating...
+    [120/131] generating...
+    [130/131] generating...
+
+生成无条件Diffusion增强数据...
+actual n_embd: 64
+  [0/391] generating...
+  [10/391] generating...
+  [20/391] generating...
+  [30/391] generating...
+  [40/391] generating...
+  [50/391] generating...
+  [60/391] generating...
+  [70/391] generating...
+  [80/391] generating...
+  [90/391] generating...
+  [100/391] generating...
+  [110/391] generating...
+  [120/391] generating...
+  [130/391] generating...
+  [140/391] generating...
+  [150/391] generating...
+  [160/391] generating...
+  [170/391] generating...
+  [180/391] generating...
+  [190/391] generating...
+  [200/391] generating...
+  [210/391] generating...
+  [220/391] generating...
+  [230/391] generating...
+  [240/391] generating...
+  [250/391] generating...
+  [260/391] generating...
+  [270/391] generating...
+  [280/391] generating...
+  [290/391] generating...
+  [300/391] generating...
+  [310/391] generating...
+  [320/391] generating...
+  [330/391] generating...
+  [340/391] generating...
+  [350/391] generating...
+  [360/391] generating...
+  [370/391] generating...
+  [380/391] generating...
+  [390/391] generating...
+  无条件Diffusion生成完成，样本数: 100000
+
+生成Bootstrap增强数据...
+  Bootstrap生成完成，样本数: 100000
+
+加载测试集...
+  测试样本数: 182521
+  真实样本数: 98249
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: no_aug
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0090
+    epoch  20/100  val_IC=0.0178
+    epoch  30/100  val_IC=0.0215
+    epoch  40/100  val_IC=0.0137
+    epoch  50/100  val_IC=0.0152
+    epoch  60/100  val_IC=0.0085
+    epoch  70/100  val_IC=0.0055
+    epoch  80/100  val_IC=0.0199
+    epoch  90/100  val_IC=0.0217
+    epoch 100/100  val_IC=0.0230
+  [DEBUG] preds std=0.004684, mean=0.001334, min=-0.093842, max=0.082701
+
+=======================================================
+  lstm | no_aug
+=======================================================
+  IC:          +0.0052  (std=0.0870)
+  ICIR:        +0.0597
+  Rank IC:     +0.0096  (std=0.0939)
+  Rank ICIR:   +0.1026
+  Ann. Return: +44.48%
+  Sharpe:      +1.5847
+=======================================================
+  已保存 lstm|no_aug
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: mcd_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.023620
+    pretrain epoch 20/30  recon_loss=0.013580
+    pretrain epoch 30/30  recon_loss=0.022778
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0225
+    epoch  20/100  val_IC=0.0158
+    epoch  30/100  val_IC=0.0147
+    epoch  40/100  val_IC=0.0230
+    epoch  50/100  val_IC=0.0283
+    epoch  60/100  val_IC=0.0209
+    epoch  70/100  val_IC=0.0115
+    epoch  80/100  val_IC=0.0218
+    epoch  90/100  val_IC=0.0192
+    epoch 100/100  val_IC=0.0229
+  [DEBUG] preds std=0.004453, mean=0.002553, min=-0.101582, max=0.077332
+
+=======================================================
+  lstm | mcd_x1
+=======================================================
+  IC:          -0.0003  (std=0.0881)
+  ICIR:        -0.0030
+  Rank IC:     -0.0096  (std=0.1080)
+  Rank ICIR:   -0.0891
+  Ann. Return: +38.21%
+  Sharpe:      +1.3096
+=======================================================
+  已保存 lstm|mcd_x1
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: mcd_adaptive
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.034966
+    pretrain epoch 20/30  recon_loss=0.013045
+    pretrain epoch 30/30  recon_loss=0.009428
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0245
+    epoch  20/100  val_IC=0.0394
+    epoch  30/100  val_IC=0.0247
+    epoch  40/100  val_IC=0.0009
+    epoch  50/100  val_IC=0.0348
+    epoch  60/100  val_IC=0.0315
+    epoch  70/100  val_IC=0.0306
+    epoch  80/100  val_IC=0.0336
+    epoch  90/100  val_IC=0.0282
+    epoch 100/100  val_IC=0.0263
+  [DEBUG] preds std=0.003566, mean=0.000527, min=-0.089919, max=0.085983
+
+=======================================================
+  lstm | mcd_adaptive
+=======================================================
+  IC:          +0.0012  (std=0.0969)
+  ICIR:        +0.0121
+  Rank IC:     -0.0043  (std=0.1140)
+  Rank ICIR:   -0.0377
+  Ann. Return: +43.42%
+  Sharpe:      +1.4748
+=======================================================
+  已保存 lstm|mcd_adaptive
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: uncond_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=1039660.187500
+    pretrain epoch 20/30  recon_loss=294755.000000
+    pretrain epoch 30/30  recon_loss=75362.406250
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0280
+    epoch  20/100  val_IC=0.0230
+    epoch  30/100  val_IC=-0.0008
+    epoch  40/100  val_IC=0.0081
+    epoch  50/100  val_IC=0.0032
+    epoch  60/100  val_IC=0.0111
+    epoch  70/100  val_IC=0.0100
+    epoch  80/100  val_IC=0.0100
+    epoch  90/100  val_IC=0.0111
+    epoch 100/100  val_IC=0.0109
+  [DEBUG] preds std=0.001433, mean=0.000922, min=-0.008240, max=0.027850
+
+=======================================================
+  lstm | uncond_x1
+=======================================================
+  IC:          +0.0054  (std=0.0870)
+  ICIR:        +0.0621
+  Rank IC:     +0.0118  (std=0.1037)
+  Rank ICIR:   +0.1135
+  Ann. Return: +38.67%
+  Sharpe:      +1.4841
+=======================================================
+  已保存 lstm|uncond_x1
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: bootstrap_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.015208
+    pretrain epoch 20/30  recon_loss=0.012581
+    pretrain epoch 30/30  recon_loss=0.008474
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0290
+    epoch  20/100  val_IC=0.0233
+    epoch  30/100  val_IC=0.0244
+    epoch  40/100  val_IC=0.0223
+    epoch  50/100  val_IC=0.0262
+    epoch  60/100  val_IC=0.0281
+    epoch  70/100  val_IC=0.0345
+    epoch  80/100  val_IC=0.0191
+    epoch  90/100  val_IC=0.0201
+    epoch 100/100  val_IC=0.0210
+  [DEBUG] preds std=0.003786, mean=0.000954, min=-0.103533, max=0.083211
+
+=======================================================
+  lstm | bootstrap_x1
+=======================================================
+  IC:          +0.0072  (std=0.0900)
+  ICIR:        +0.0798
+  Rank IC:     +0.0045  (std=0.1070)
+  Rank ICIR:   +0.0418
+  Ann. Return: +40.74%
+  Sharpe:      +1.3829
+=======================================================
+  已保存 lstm|bootstrap_x1
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: vae_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.014234
+    pretrain epoch 20/30  recon_loss=0.010571
+    pretrain epoch 30/30  recon_loss=0.010738
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0293
+    epoch  20/100  val_IC=0.0103
+    epoch  30/100  val_IC=0.0199
+    epoch  40/100  val_IC=0.0180
+    epoch  50/100  val_IC=0.0266
+    epoch  60/100  val_IC=0.0261
+    epoch  70/100  val_IC=0.0199
+    epoch  80/100  val_IC=0.0135
+    epoch  90/100  val_IC=0.0205
+    epoch 100/100  val_IC=0.0206
+  [DEBUG] preds std=0.003531, mean=0.000549, min=-0.100355, max=0.067857
+
+=======================================================
+  lstm | vae_x1
+=======================================================
+  IC:          +0.0048  (std=0.0952)
+  ICIR:        +0.0506
+  Rank IC:     +0.0001  (std=0.1135)
+  Rank ICIR:   +0.0009
+  Ann. Return: +43.10%
+  Sharpe:      +1.4577
+=======================================================
+  已保存 lstm|vae_x1
+
+───────────────────────────────────────────────────────
+下游模型: lstm  条件: gan_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.022817
+    pretrain epoch 20/30  recon_loss=0.010375
+    pretrain epoch 30/30  recon_loss=0.011439
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0257
+    epoch  20/100  val_IC=0.0252
+    epoch  30/100  val_IC=0.0162
+    epoch  40/100  val_IC=0.0229
+    epoch  50/100  val_IC=0.0353
+    epoch  60/100  val_IC=0.0225
+    epoch  70/100  val_IC=0.0236
+    epoch  80/100  val_IC=0.0240
+    epoch  90/100  val_IC=0.0232
+    epoch 100/100  val_IC=0.0235
+  [DEBUG] preds std=0.003581, mean=0.000496, min=-0.098415, max=0.065292
+
+=======================================================
+  lstm | gan_x1
+=======================================================
+  IC:          +0.0035  (std=0.0914)
+  ICIR:        +0.0379
+  Rank IC:     +0.0018  (std=0.1100)
+  Rank ICIR:   +0.0160
+  Ann. Return: +32.39%
+  Sharpe:      +1.1417
+=======================================================
+  已保存 lstm|gan_x1
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: no_aug
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段2] 预测任务训练（仅真实数据）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    epoch  10/100  val_IC=0.0062
+    epoch  20/100  val_IC=0.0007
+    epoch  30/100  val_IC=0.0038
+    epoch  40/100  val_IC=0.0194
+    epoch  50/100  val_IC=0.0273
+    epoch  60/100  val_IC=0.0364
+    epoch  70/100  val_IC=0.0268
+    epoch  80/100  val_IC=0.0284
+    epoch  90/100  val_IC=0.0242
+    epoch 100/100  val_IC=0.0247
+  [DEBUG] preds std=0.003507, mean=0.002804, min=-0.102679, max=0.059071
+
+=======================================================
+  transformer | no_aug
+=======================================================
+  IC:          +0.0094  (std=0.1155)
+  ICIR:        +0.0811
+  Rank IC:     -0.0001  (std=0.1350)
+  Rank ICIR:   -0.0005
+  Ann. Return: +48.23%
+  Sharpe:      +1.6100
+=======================================================
+  已保存 transformer|no_aug
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: mcd_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.000809
+    pretrain epoch 20/30  recon_loss=0.000026
+    pretrain epoch 30/30  recon_loss=0.000356
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0249
+    epoch  20/100  val_IC=-0.0032
+    epoch  30/100  val_IC=-0.0026
+    epoch  40/100  val_IC=-0.0014
+    epoch  50/100  val_IC=0.0167
+    epoch  60/100  val_IC=0.0175
+    epoch  70/100  val_IC=0.0178
+    epoch  80/100  val_IC=0.0227
+    epoch  90/100  val_IC=0.0225
+    epoch 100/100  val_IC=0.0222
+  [DEBUG] preds std=0.001197, mean=-0.001125, min=-0.015483, max=0.084725
+
+=======================================================
+  transformer | mcd_x1
+=======================================================
+  IC:          +0.0057  (std=0.1129)
+  ICIR:        +0.0509
+  Rank IC:     +0.0214  (std=0.1360)
+  Rank ICIR:   +0.1575
+  Ann. Return: +45.45%
+  Sharpe:      +1.6740
+=======================================================
+  已保存 transformer|mcd_x1
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: mcd_adaptive
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.000195
+    pretrain epoch 20/30  recon_loss=0.000242
+    pretrain epoch 30/30  recon_loss=0.000052
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0272
+    epoch  20/100  val_IC=0.0165
+    epoch  30/100  val_IC=0.0330
+    epoch  40/100  val_IC=0.0133
+    epoch  50/100  val_IC=0.0215
+    epoch  60/100  val_IC=0.0283
+    epoch  70/100  val_IC=0.0260
+    epoch  80/100  val_IC=0.0212
+    epoch  90/100  val_IC=0.0256
+    epoch 100/100  val_IC=0.0279
+  [DEBUG] preds std=0.004156, mean=0.000827, min=-0.086027, max=0.074267
+
+=======================================================
+  transformer | mcd_adaptive
+=======================================================
+  IC:          +0.0088  (std=0.1099)
+  ICIR:        +0.0797
+  Rank IC:     +0.0061  (std=0.1285)
+  Rank ICIR:   +0.0477
+  Ann. Return: +46.08%
+  Sharpe:      +1.5285
+=======================================================
+  已保存 transformer|mcd_adaptive
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: uncond_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=4.783109
+    pretrain epoch 20/30  recon_loss=27.224878
+    pretrain epoch 30/30  recon_loss=443.085876
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=-0.0047
+    epoch  20/100  val_IC=-0.0076
+    epoch  30/100  val_IC=0.0069
+    epoch  40/100  val_IC=0.0182
+    epoch  50/100  val_IC=0.0238
+    epoch  60/100  val_IC=0.0182
+    epoch  70/100  val_IC=0.0159
+    epoch  80/100  val_IC=0.0281
+    epoch  90/100  val_IC=0.0283
+    epoch 100/100  val_IC=0.0260
+  [DEBUG] preds std=0.000868, mean=0.000459, min=-0.005077, max=0.032850
+
+=======================================================
+  transformer | uncond_x1
+=======================================================
+  IC:          +0.0056  (std=0.1296)
+  ICIR:        +0.0429
+  Rank IC:     +0.0154  (std=0.1504)
+  Rank ICIR:   +0.1025
+  Ann. Return: +42.30%
+  Sharpe:      +1.4800
+=======================================================
+  已保存 transformer|uncond_x1
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: bootstrap_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.000087
+    pretrain epoch 20/30  recon_loss=0.014542
+    pretrain epoch 30/30  recon_loss=0.000009
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=-0.0241
+    epoch  20/100  val_IC=0.0290
+    epoch  30/100  val_IC=0.0075
+    epoch  40/100  val_IC=0.0033
+    epoch  50/100  val_IC=0.0250
+    epoch  60/100  val_IC=0.0148
+    epoch  70/100  val_IC=0.0188
+    epoch  80/100  val_IC=0.0210
+    epoch  90/100  val_IC=0.0241
+    epoch 100/100  val_IC=0.0227
+  [DEBUG] preds std=0.000802, mean=0.002426, min=-0.016905, max=0.025401
+
+=======================================================
+  transformer | bootstrap_x1
+=======================================================
+  IC:          +0.0083  (std=0.1147)
+  ICIR:        +0.0722
+  Rank IC:     +0.0091  (std=0.1342)
+  Rank ICIR:   +0.0676
+  Ann. Return: +38.85%
+  Sharpe:      +1.4134
+=======================================================
+  已保存 transformer|bootstrap_x1
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: vae_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.000032
+    pretrain epoch 20/30  recon_loss=0.000144
+    pretrain epoch 30/30  recon_loss=0.000006
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0115
+    epoch  20/100  val_IC=0.0127
+    epoch  30/100  val_IC=0.0029
+    epoch  40/100  val_IC=0.0166
+    epoch  50/100  val_IC=0.0122
+    epoch  60/100  val_IC=0.0140
+    epoch  70/100  val_IC=0.0228
+    epoch  80/100  val_IC=0.0290
+    epoch  90/100  val_IC=0.0299
+    epoch 100/100  val_IC=0.0296
+  [DEBUG] preds std=0.001038, mean=0.000624, min=-0.023925, max=0.025877
+
+=======================================================
+  transformer | vae_x1
+=======================================================
+  IC:          +0.0021  (std=0.1060)
+  ICIR:        +0.0201
+  Rank IC:     +0.0172  (std=0.1245)
+  Rank ICIR:   +0.1382
+  Ann. Return: +39.86%
+  Sharpe:      +1.5193
+=======================================================
+  已保存 transformer|vae_x1
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: gan_x1
+───────────────────────────────────────────────────────
+  真实样本数: 749474
+  [阶段1] encoder预训练（特征重建）...
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    pretrain epoch 10/30  recon_loss=0.002861
+    pretrain epoch 20/30  recon_loss=0.000093
+    pretrain epoch 30/30  recon_loss=0.000382
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0129
+    epoch  20/100  val_IC=0.0168
+    epoch  30/100  val_IC=0.0232
+    epoch  40/100  val_IC=0.0165
+    epoch  50/100  val_IC=0.0273
+    epoch  60/100  val_IC=0.0319
+    epoch  70/100  val_IC=0.0313
+    epoch  80/100  val_IC=0.0294
+    epoch  90/100  val_IC=0.0308
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    epoch 100/100  val_IC=0.0297
+  [DEBUG] preds std=0.002525, mean=0.000166, min=-0.083457, max=0.076407
+
+=======================================================
+  transformer | gan_x1
+=======================================================
+  IC:          +0.0114  (std=0.1131)
+  ICIR:        +0.1008
+  Rank IC:     +0.0103  (std=0.1269)
+  Rank ICIR:   +0.0809
+  Ann. Return: +52.14%
+  Sharpe:      +1.7170
+=======================================================
+  已保存 transformer|gan_x1
+
+✅ 结果已保存到 downstream/results_csi500/all_results.json
+
+======================================================================
+汇总对比表
+======================================================================
+模型           条件                     IC     ICIR   RankIC         年化   Sharpe
+----------------------------------------------------------------------
+lstm         no_aug            +0.0052  +0.0597  +0.0096    +44.48%  +1.5847
+lstm         mcd_x1            -0.0003  -0.0030  -0.0096    +38.21%  +1.3096
+lstm         mcd_adaptive      +0.0012  +0.0121  -0.0043    +43.42%  +1.4748
+lstm         uncond_x1         +0.0054  +0.0621  +0.0118    +38.67%  +1.4841
+lstm         bootstrap_x1      +0.0072  +0.0798  +0.0045    +40.74%  +1.3829
+lstm         vae_x1            +0.0048  +0.0506  +0.0001    +43.10%  +1.4577
+lstm         gan_x1            +0.0035  +0.0379  +0.0018    +32.39%  +1.1417
+transformer  no_aug            +0.0094  +0.0811  -0.0001    +48.23%  +1.6100
+transformer  mcd_x1            +0.0057  +0.0509  +0.0214    +45.45%  +1.6740
+transformer  mcd_adaptive      +0.0088  +0.0797  +0.0061    +46.08%  +1.5285
+transformer  uncond_x1         +0.0056  +0.0429  +0.0154    +42.30%  +1.4800
+transformer  bootstrap_x1      +0.0083  +0.0722  +0.0091    +38.85%  +1.4134
+transformer  vae_x1            +0.0021  +0.0201  +0.0172    +39.86%  +1.5193
+transformer  gan_x1            +0.0114  +0.1008  +0.0103    +52.14%  +1.7170
