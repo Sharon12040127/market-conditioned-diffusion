@@ -1,0 +1,32 @@
+{
+  "train_path": "data/processed/csi500_train_with_regime.parquet",
+  "val_path": "data/processed/csi500_val_with_regime.parquet",
+  "seq_len": 20,
+  "feature_cols": [
+    "ret_5d",
+    "ret_10d",
+    "ret_20d",
+    "vol_5d",
+    "vol_20d",
+    "volume_chg_5d",
+    "macd",
+    "macd_signal",
+    "macd_hist",
+    "rsi_14"
+  ],
+  "feature_size": 10,
+  "n_regimes": 3,
+  "d_model": 64,
+  "n_layer_enc": 3,
+  "n_layer_dec": 6,
+  "n_heads": 4,
+  "timesteps": 1000,
+  "sampling_timesteps": 50,
+  "beta_schedule": "cosine",
+  "batch_size": 256,
+  "lr": 0.0001,
+  "epochs": 200,
+  "save_every": 50,
+  "checkpoint_dir": "checkpoints_csi500",
+  "device": "cuda"
+}
