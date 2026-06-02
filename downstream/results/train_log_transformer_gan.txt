@@ -1,0 +1,50 @@
+
+加载测试集...
+  测试样本数: 110872
+  真实样本数: 61177
+加载已有结果: downstream/results/all_results.json
+
+───────────────────────────────────────────────────────
+下游模型: transformer  条件: gan_x1
+───────────────────────────────────────────────────────
+  真实样本数: 468471
+  [阶段1] encoder预训练（特征重建）...
+    pretrain epoch 10/30  recon_loss=0.000497
+    pretrain epoch 20/30  recon_loss=0.000075
+    pretrain epoch 30/30  recon_loss=0.000674
+  [阶段2] 预测任务训练（仅真实数据）...
+    epoch  10/100  val_IC=0.0151
+    epoch  20/100  val_IC=-0.0098
+    epoch  30/100  val_IC=-0.0132
+    epoch  40/100  val_IC=0.0049
+    epoch  50/100  val_IC=-0.0013
+    epoch  60/100  val_IC=-0.0070
+    epoch  70/100  val_IC=0.0006
+    epoch  80/100  val_IC=0.0088
+    epoch  90/100  val_IC=0.0018
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4068: PearsonRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(PearsonRConstantInputWarning())
+/root/miniconda3/lib/python3.8/site-packages/scipy/stats/_stats_py.py:4529: SpearmanRConstantInputWarning: An input array is constant; the correlation coefficient is not defined.
+  warnings.warn(SpearmanRConstantInputWarning())
+    epoch 100/100  val_IC=0.0040
+  [DEBUG] preds std=0.000922, mean=0.006293, min=-0.008074, max=0.021694
+
+=======================================================
+  transformer | gan_x1
+=======================================================
+  IC:          +0.0005  (std=0.1186)
+  ICIR:        +0.0043
+  Rank IC:     +0.0048  (std=0.1392)
+  Rank ICIR:   +0.0342
+  Ann. Return: +42.07%
+  Sharpe:      +1.7559
+=======================================================
+
+✅ 结果已保存到 downstream/results/all_results.json
+
+======================================================================
+汇总对比表
+======================================================================
+模型           条件                     IC     ICIR   RankIC         年化   Sharpe
+----------------------------------------------------------------------
+transformer  gan_x1            +0.0005  +0.0043  +0.0048    +42.07%  +1.7559
